@@ -1,116 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <!-- Tailwind CSS -->
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/skilline.css" />
-    
-	<link rel="shortcut icon" type="image/x-icon" href="img/logo1.png">
-    <!-- Poppins font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | funCode Gh</title>
+  <!-- Tailwind -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Alpine -->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
 </head>
-<body class="antialiased bg-cream font-poppins">
-    <!-- Navbar copied from index.html -->
-    <div x-data="{ open: false }" class="w-full text-gray-700 bg-cream">
-       <div class="flex items-center justify-between max-w-screen-xl px-8 mx-auto relative h-20 md:h-auto">
-           <a href="index.html" class="flex items-center">
-               <div class="logo_img">
-                   <img src="img/logo.png" alt="" class="logo_resized">
-               </div>
-           </a>
-           <!-- Mobile menu button -->
-           <button @click="open = !open" class="md:hidden px-3 py-2 rounded focus:outline-none focus:bg-gray-200" aria-label="Toggle menu">
-               <svg class="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-               </svg>
-           </button>
-           <nav :class="{ 'block': open, 'hidden': !open, 'md:flex': true }" class="h-0 md:h-auto flex flex-col md:flex-row md:items-center pb-4 md:pb-0 md:justify-end origin-top duration-300 scale-y-0 md:scale-y-100 absolute md:static w-full md:w-auto bg-cream md:bg-transparent left-0 top-20 z-50 md:z-auto" style="min-width:200px;">
-               <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="index.html">Home</a>
-               <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="contact.html">Contact</a>
-               <a class="px-10 py-3 mt-2 text-sm text-center bg-yellow-500 text-white rounded-full md:mt-0 md:ml-4" href="https://gh.linkedin.com/company/funcodegh">Linkedin</a>
-           </nav>
-       </div>
+<body class="antialiased font-poppins">
+
+  <!-- Navbar -->
+  <div x-data="{ open: false }" class="w-full text-gray-700 bg-cream shadow-md">
+    <div class="flex items-center justify-between max-w-screen-xl px-6 mx-auto h-20 relative">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center">
+        <img src="img/logo1.png" alt="Funcode Logo" class="h-10 w-auto">
+      </a>
+      <!-- Mobile Menu Button -->
+      <button @click="open = !open" class="md:hidden focus:outline-none">
+        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <!-- Nav Links -->
+      <nav :class="{ 'block': open, 'hidden': !open }"
+      class="absolute top-20 left-0 w-full bg-white shadow-lg md:shadow-none md:bg-transparent md:static md:flex md:items-center md:justify-end md:space-x-6 hidden transition-all duration-300 z-50">
+        <a href="index.html" class="block px-6 py-3 text-gray-700 hover:text-[#6abac3]">Home</a>
+        <a href="contact.html" class="block px-6 py-3 text-gray-700 hover:text-[#6abac3] font-semibold">Contact</a>
+        <a href="https://gh.linkedin.com/company/funcodegh"
+  class="block mx-6 my-3 text-center rounded-full px-6 py-3 text-white transition md:my-0"
+  style="background-color: #6abac3;"
+  onmouseover="this.style.backgroundColor='#589ea6'" onmouseout="this.style.backgroundColor='#6abac3'">
+  Linkedin
+</a>
+      </nav>
     </div>
-    <!-- Banner image section -->
-    <div class="w-full h-64 md:h-96 relative flex items-center justify-center bg-gray-100 mb-10">
-        <img src="img/banner.jpg" alt="Contact Banner" class="object-cover w-full h-full absolute inset-0 opacity-80" />
-        <h2 class="relative z-10 text-4xl md:text-5xl font-bold text-white text-center drop-shadow-lg">Get in Touch</h2>
+  </div>
+
+  <!-- Banner -->
+  <section class="relative bg-cover bg-center h-96 flex items-center justify-center text-center text-white" style="background-image: url('img/banner.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 px-6">
+      <h1 class="text-4xl md:text-5xl font-bold">Contact Us</h1>
     </div>
-    <!-- Main contact content -->
-    <div class="max-w-screen-md mx-auto px-4 py-16">
-        <h1 class="text-4xl font-bold text-darken mb-6 text-center">Contact Us</h1>
-        <div class="bg-white rounded-xl shadow-lg p-8 mb-10">
-            <form action="mailto:your@email.com" method="POST" enctype="text/plain" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
-                </div>
-                <button type="submit" class="w-full py-3 bg-yellow-500 text-white font-semibold rounded-full hover:bg-yellow-600 transition">Send Email</button>
-            </form>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-16 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+    <!-- Left: Info -->
+    <div class="space-y-8">
+      <h2 class="text-2xl font-bold text-gray-800">Get in Touch</h2>
+      <p class="text-gray-600">Reach out to us anytime and let’s discuss how funCode can bring your ideas to life. Whether it’s a question, a challenge, or a project—you can count on us.</p>
+      
+      <!-- Phone -->
+      <div class="flex items-center space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#6abac3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a2 2 0 011.94 1.515l.518 2.07a2 2 0 01-.45 1.785L9.1 9.9a16.001 16.001 0 006.001 6.001l1.53-1.188a2 2 0 011.786-.45l2.07.518A2 2 0 0121 16.72V20a2 2 0 01-2 2h-1C9.163 22 2 14.837 2 6V5z" />
+        </svg>
+        <a href="tel:+233550634945" class="text-gray-700 font-medium" style="transition:color 0.2s;" onmouseover="this.style.color='#6abac3'" onmouseout="this.style.color=''">+233 55 063 4945</a>
+      </div>
+      <!-- Email -->
+      <div class="flex items-center space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#6abac3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        <a href="mailto:info@funcodegh.com" class="text-gray-700 font-medium" style="transition:color 0.2s;" onmouseover="this.style.color='#6abac3'" onmouseout="this.style.color=''">info@funcodegh.com</a>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+     <div class="bg-white shadow-lg rounded-lg p-8">
+      <form action="#" method="POST" class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Name</label>
+          <input type="text" name="name" class="w-full mt-2 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#6abac3] focus:outline-none" required>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col md:flex-row md:space-x-10 items-center justify-between">
-            <div class="mb-6 md:mb-0">
-                <h2 class="text-xl font-semibold text-darken mb-2">Email</h2>
-                <p class="text-gray-500">info@funcodegh.com</p>
-            </div>
-            <div>
-                <h2 class="text-xl font-semibold text-darken mb-2">Call</h2>
-                <p class="text-gray-500">+233 55 063 4945</p>
-            </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" name="email" class="w-full mt-2 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#6abac3] focus:outline-none" required>
         </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Message</label>
+          <textarea name="message" rows="4" class="w-full mt-2 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#6abac3] focus:outline-none" required></textarea>
+        </div>
+        <button type="submit" class="w-full text-white py-3 rounded-lg font-semibold transition" style="background-color: #6abac3;" onmouseover="this.style.backgroundColor='#589ea6'" onmouseout="this.style.backgroundColor='#6abac3'">Send Message</button>
+      </form>
     </div>
-    <footer class="footer">
-  	 <div class="container">
-  	 	<div class="row">
-  	 		<div class="footer-col">
-  	 			<h4>Funcode</h4>
-  	 			<ul>
-  	 				<li><a href="index.html">Home</a></li>
-  	 				<li><a href="contact.html">Contact</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>Our Services</h4>
-  	 			<ul>
-  	 				<li>Web Development</li>
-  	 				<li>Widget Integration</li>
-  	 				<li>Graphic Design</a></li>
-  	 				<li>API Integrations</li>
-  	 				<li>Web Apps</li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>online shop</h4>
-  	 			<ul>
-  	 				<li><a href="mailto:info@funcodegh.com">info@funcodegh.com</a></li>
-  	 				<li><a href="tel:+233 55 063 4945">Call Us: +233 55 063 4945</a></li>
-  	 				
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>follow us</h4>
-  	 			<div class="social-links">
-  	 				<a href="https://gh.linkedin.com/company/funcodegh"><i class="fab fa-linkedin-in"></i></a>
-  	 			</div>
-  	 		</div>
-  	 	</div>
-  	 </div>
+  </section
+  
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>Funcode</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul>
+            <li>Web Development</li>
+            <li>Widget Integration</li>
+            <li>Graphic Design</li>
+            <li>API Integrations</li>
+            <li>Web Apps</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Online Shop</h4>
+          <ul>
+            <li><a href="mailto:info@funcodegh.com">info@funcodegh.com</a></li>
+            <li><a href="tel:+233550634945">Call Us: +233 55 063 4945</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="https://gh.linkedin.com/company/funcodegh"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>
