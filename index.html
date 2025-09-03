@@ -22,26 +22,42 @@
 </head>
 <body class="antialiased">
    <!-- navbar -->
-   <div x-data="{ open: false }" class="w-full text-gray-700 bg-cream">
-	   <div class="flex items-center justify-between max-w-screen-xl px-8 mx-auto relative h-20 md:h-auto">
-		   <a href="index.html" class="flex items-center">
-			   <div class="logo_img">
-				   <img src="img/logo.png" alt="" class="logo_resized">
-			   </div>
-		   </a>
-		   <!-- Mobile menu button -->
-		   <button @click="open = !open" class="md:hidden px-3 py-2 rounded focus:outline-none focus:bg-gray-200" aria-label="Toggle menu">
-			   <svg class="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-			   </svg>
-		   </button>
-		   <nav :class="{ 'block': open, 'hidden': !open, 'md:flex': true }" class="h-0 md:h-auto flex flex-col md:flex-row md:items-center pb-4 md:pb-0 md:justify-end origin-top duration-300 scale-y-0 md:scale-y-100 absolute md:static w-full md:w-auto bg-cream md:bg-transparent left-0 top-20 z-50 md:z-auto" style="min-width:200px;">
-			   <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="index.html">Home</a>
-			   <a class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline" href="contact.html">Contact</a>
-			   <a class="px-10 py-3 mt-2 text-sm text-center bg-yellow-500 text-white rounded-full md:mt-0 md:ml-4" href="https://gh.linkedin.com/company/funcodegh">Linkedin</a>
-		   </nav>
-	   </div>
-   </div>
+   <div x-data="{ open: false }" class="w-full text-gray-700 bg-cream shadow-md">
+  <div class="flex items-center justify-between max-w-screen-xl px-6 mx-auto h-20 relative">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center">
+      <div class="logo_img">
+        <img src="img/logo.png" alt="Funcode Logo" class="logo_resized h-10 w-auto">
+      </div>
+    </a>
+
+    <!-- Mobile Hamburger Button -->
+    <button @click="open = !open" class="md:hidden focus:outline-none">
+      <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Nav Links -->
+    <nav :class="{ 'block': open, 'hidden': !open }"
+      class="absolute top-20 left-0 w-full bg-white shadow-lg md:shadow-none md:bg-transparent md:static md:flex md:items-center md:justify-end md:space-x-6 hidden transition-all duration-300 z-50">
+      <a href="index.html" class="block px-6 py-3 text-gray-700 hover:bg-[#232641] md:hover:bg-transparent hover:text-white rounded-lg transition">Home</a>
+      <a href="contact.html" class="block px-6 py-3 text-gray-700 hover:bg-[#232641] md:hover:bg-transparent hover:text-white rounded-lg transition">Contact</a>
+      <a href="https://gh.linkedin.com/company/funcodegh"
+        class="block mx-6 my-3 text-center rounded-full px-6 py-3 text-white transition md:my-0"
+        style="background-color: #6abac3;"
+        onmouseover="this.style.backgroundColor='#232641'" onmouseout="this.style.backgroundColor='#6abac3'">
+        Linkedin
+      </a>
+    </nav>
+  </div>
+</div>
+
 	<div class="bg-cream">
 		<div class="max-w-screen-xl px-8 mx-auto flex flex-col lg:flex-row items-start">
 			<!--Left Col-->
